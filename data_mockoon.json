@@ -1,0 +1,422 @@
+{
+    "source": "mockoon:1.17.0",
+    "data": [
+        {
+            "type": "environment",
+            "item": {
+                "uuid": "7d2616c1-71e9-41c6-a05d-83344a4ad64d",
+                "lastMigration": 19,
+                "name": "ecommerce",
+                "endpointPrefix": "",
+                "latency": 2000,
+                "port": 3000,
+                "hostname": "0.0.0.0",
+                "routes": [
+                    {
+                        "uuid": "49d91f46-b7a5-44bc-9f4e-d6c0b1745099",
+                        "documentation": "Generate random body (JSON, text, CSV, etc) with templating",
+                        "method": "get",
+                        "endpoint": "users",
+                        "responses": [
+                            {
+                                "uuid": "0a72fbea-d9b1-43ae-9898-0c2ca72eee00",
+                                "body": "{\n  \"Templating example\": \"For more information about templating, click the blue 'i' above this editor\",\n  \"users\": [\n    {{# repeat (queryParam 'total' '10') }}\n      {\n        \"userId\": \"{{ faker 'random.number' min=10000 max=100000 }}\",\n        \"firstname\": \"{{ faker 'name.firstName' }}\",\n        \"lastname\": \"{{ faker 'name.lastName' }}\",\n        \"friends\": [\n          {{# repeat (faker 'random.number' 5) }}\n            {\n              \"id\": \"{{ faker 'random.uuid' }}\"\n            }\n          {{/ repeat }}\n        ]\n      },\n    {{/ repeat }}\n  ],\n  \"total\": \"{{queryParam 'total' '10'}}\"\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "Creates 10 random users, or the amount specified in the 'total' query param",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "581349d9-d081-470e-9e03-a431d5847d09",
+                        "documentation": "Generate random body (JSON, text, CSV, etc) with templating",
+                        "method": "get",
+                        "endpoint": "categories",
+                        "responses": [
+                            {
+                                "uuid": "6f58efc2-3893-4b8e-b79a-405770738002",
+                                "body": "[{\"id\":1, \"title\": \"Ofertas con desc larga\" },{\"id\":2, \"title\": \"Solo por hoy\" },{\"id\":3, \"title\": \"Cosméticos\" },{\"id\":4, \"title\": \"Perfumes\" },{\"id\":5, \"title\": \"Farmacia\" },{\"id\":6, \"title\": \"Otros\" },{\"id\":7, \"title\": \"Otra cosa\" }]",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "Creates 10 random users, or the amount specified in the 'total' query param",
+                                "headers": [
+                                    {
+                                        "key": " content-type",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Access-Control-Allow-Origin",
+                                        "value": "*"
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "db93122f-8e4e-4e45-9f3b-579569c215a2",
+                        "documentation": "Generate random body (JSON, text, CSV, etc) with templating",
+                        "method": "get",
+                        "endpoint": "sections",
+                        "responses": [
+                            {
+                                "uuid": "23490a19-4aa9-4bf6-a8b4-ce65ef87027b",
+                                "body": "[{\"id\":1, \"title\": \"Ofertas del día\" },{\"id\":2, \"title\": \"Productos populares\" },{\"id\":3, \"title\": \"Más visitados\" }]",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "Creates 10 random users, or the amount specified in the 'total' query param",
+                                "headers": [
+                                    {
+                                        "key": " content-type",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Access-Control-Allow-Origin",
+                                        "value": "*"
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "6b421684-5e06-4396-9ea3-284036074a33",
+                        "documentation": "Generate random body (JSON, text, CSV, etc) with templating",
+                        "method": "get",
+                        "endpoint": "products",
+                        "responses": [
+                            {
+                                "uuid": "555462ad-1cb1-442f-8c69-18dc672b59ea",
+                                "body": "[{\"id\":1, \"title\": \"EFFECTIVE PARPADOS\", \"price\": 700.00, \"description\": \"Perfume descripcion\", \"rating\":4.9, \"isFavourite\":true, \"isPopular\":true, \"imageUrl\": \"https://www.sanroque.com.uy/wp-content/uploads/2021/01/7730912004256-300x300.jpg\"},\n{\"id\":1, \"title\": \"LIFTACTIV SUPREME H.A EPIDERMIC FILLER\", \"price\": 3560.00, \"description\": \"Perfume descripcion\", \"rating\":4.9, \"isFavourite\":true, \"isPopular\":true, \"imageUrl\":\"https://www.sanroque.com.uy/wp-content/uploads/2021/04/3337875719209_01-300x300.jpg\" },\n{\"id\":1, \"title\": \"HEATING MOISTURE HAND MASK\", \"price\":820.00, \"description\": \"Perfume descripcion\", \"rating\":4.9, \"isFavourite\":true, \"isPopular\":true, \"imageUrl\": \"https://www.sanroque.com.uy/wp-content/uploads/2020/11/HEATING-HAND-MASK-300x300.png\"},\n{\"id\":1, \"title\": \"ANTHELIOS SHAKA FLUIDE ULTRA APTT50\", \"price\": 458.99, \"description\": \"Perfume descripcion\", \"rating\":4.9, \"isFavourite\":true, \"isPopular\":true, \"imageUrl\":\"https://www.sanroque.com.uy/wp-content/uploads/2021/05/126646-1-300x300.jpg\"},{\"id\":1, \"title\": \"HEATING MOISTURE HAND MASK\", \"price\":820.00, \"description\": \"Perfume descripcion\", \"rating\":4.9, \"isFavourite\":true, \"isPopular\":true, \"imageUrl\": \"https://www.sanroque.com.uy/wp-content/uploads/2020/11/HEATING-HAND-MASK-300x300.png\"},\n{\"id\":1, \"title\": \"ANTHELIOS SHAKA FLUIDE ULTRA APTT50\", \"price\": 458.99, \"description\": \"Perfume descripcion\", \"rating\":4.9, \"isFavourite\":true, \"isPopular\":true, \"imageUrl\":\"https://www.sanroque.com.uy/wp-content/uploads/2021/05/126646-1-300x300.jpg\"}]\n",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "Creates 10 random users, or the amount specified in the 'total' query param",
+                                "headers": [
+                                    {
+                                        "key": " content-type",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Access-Control-Allow-Origin",
+                                        "value": "*"
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [
+                                    {
+                                        "target": "query",
+                                        "modifier": "section",
+                                        "value": "1",
+                                        "operator": "equals"
+                                    }
+                                ],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            },
+                            {
+                                "uuid": "3029e4e9-835e-4b6b-b524-5b07be6c99eb",
+                                "body": "[{\"id\":1, \"title\": \"COFRE POLO RED 75ML + 30 ML\", \"price\": 4050.00, \"description\": \"Perfume descripcion\", \"rating\":4.9, \"isFavourite\":true, \"isPopular\":true, \"imageUrl\": \"https://www.sanroque.com.uy/wp-content/uploads/2021/11/127725-300x300.jpg\"},\n{\"id\":1, \"title\": \"GUERLAIN MON EDP 100 ML\", \"price\": 3053.00, \"description\": \"Perfume descripcion\", \"rating\":4.9, \"isFavourite\":true, \"isPopular\":true, \"imageUrl\":\"https://www.sanroque.com.uy/wp-content/uploads/2021/02/3346470131392-300x300.jpg\" },\n{\"id\":1, \"title\": \"CERAVE SA SMOOTHING CREAM 170G\", \"price\":520.00, \"description\": \"Perfume descripcion\", \"rating\":4.9, \"isFavourite\":true, \"isPopular\":true, \"imageUrl\": \"https://www.sanroque.com.uy/wp-content/uploads/2021/07/127182.jpg\"},\n{\"id\":1, \"title\": \"NEOSTRATA ENLIGHTEN PIGMENT CONTROLL\", \"price\": 64.99, \"description\": \"Perfume descripcion\", \"rating\":4.9, \"isFavourite\":true, \"isPopular\":true, \"imageUrl\":\"https://www.sanroque.com.uy/wp-content/uploads/2021/12/104123.png\"}]\n\n",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [
+                                    {
+                                        "target": "query",
+                                        "modifier": "section",
+                                        "value": "2",
+                                        "operator": "equals"
+                                    }
+                                ],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            },
+                            {
+                                "uuid": "04bfcf1b-91ed-4d64-ab76-d6c05a97e4f6",
+                                "body": "[{\"id\":1, \"title\": \"HEATING MOISTURE HAND MASK\", \"price\":820.00, \"description\": \"Perfume descripcion\", \"rating\":4.9, \"isFavourite\":true, \"isPopular\":true, \"imageUrl\": \"https://www.sanroque.com.uy/wp-content/uploads/2020/11/HEATING-HAND-MASK-300x300.png\"},\n{\"id\":2, \"title\": \"ANTHELIOS SHAKA FLUIDE ULTRA APTT50\", \"price\": 458.99, \"description\": \"Perfume descripcion\", \"rating\":4.9, \"isFavourite\":true, \"isPopular\":true, \"imageUrl\":\"https://www.sanroque.com.uy/wp-content/uploads/2021/05/126646-1-300x300.jpg\"},\n{\"id\":3, \"title\": \"CERAVE SA SMOOTHING CREAM 170G\", \"price\":520.00, \"description\": \"Perfume descripcion\", \"rating\":4.9, \"isFavourite\":true, \"isPopular\":true, \"imageUrl\": \"https://www.sanroque.com.uy/wp-content/uploads/2021/07/127182.jpg\"},\n{\"id\":4, \"title\": \"NEOSTRATA ENLIGHTEN PIGMENT CONTROLL\", \"price\": 64.99, \"description\": \"Perfume descripcion\", \"rating\":4.9, \"isFavourite\":true, \"isPopular\":true, \"imageUrl\":\"https://www.sanroque.com.uy/wp-content/uploads/2021/12/104123.png\"}]\n",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [
+                                    {
+                                        "target": "query",
+                                        "modifier": "section",
+                                        "value": "3",
+                                        "operator": "equals"
+                                    }
+                                ],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            },
+                            {
+                                "uuid": "fee0af39-7f5b-488c-9ce5-16197b11c682",
+                                "body": "{}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "5c8f02f7-4c0b-40bf-a65f-cfc272e20233",
+                        "documentation": "Use multiple responses with rules",
+                        "method": "post",
+                        "endpoint": "content/:param1",
+                        "responses": [
+                            {
+                                "uuid": "38ff4693-63cc-4a0b-981a-fc11002ae318",
+                                "body": "{\n  \"Rules example\": \"Default response. Served if route param 'param1' is not present.\"\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "Default response",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            },
+                            {
+                                "uuid": "e735a680-40ac-4349-8219-b7fe9d21e86f",
+                                "body": "{\n  \"Rules example\": \"Content XYZ. Served if route param 'param1' equals 'xyz'. (See in 'Rules' tab)\"\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "Content XYZ",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [
+                                    {
+                                        "target": "params",
+                                        "modifier": "param1",
+                                        "value": "xyz",
+                                        "operator": "equals"
+                                    }
+                                ],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            },
+                            {
+                                "uuid": "23b2224b-8c0a-4601-a995-03cd95e37b98",
+                                "body": "{\n  \"Rules example\": \"Content not found. Served if route param 'param1' is not equal to 'xyz'. (See in 'Rules' tab)\"\n}\n",
+                                "latency": 0,
+                                "statusCode": 404,
+                                "label": "Content not found",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [
+                                    {
+                                        "target": "params",
+                                        "modifier": "param1",
+                                        "value": "^(?!.*xyz).*$",
+                                        "operator": "regex"
+                                    }
+                                ],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "61a6848a-514f-49f8-8c72-50810a746f4c",
+                        "documentation": "Serve a file dynamically depending on the path param 'pageName'.",
+                        "method": "get",
+                        "endpoint": "file/:pageName",
+                        "responses": [
+                            {
+                                "uuid": "f0e0c1e6-9f31-4665-8c9e-f40e0fa28b81",
+                                "body": "",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "Templating is also supported in file path",
+                                "headers": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "text/html"
+                                    }
+                                ],
+                                "filePath": "./page{{urlParam 'pageName'}}.html",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "3b6bb217-f052-4982-a96a-63ed8c6e0bc4",
+                        "documentation": "Path supports various patterns",
+                        "method": "put",
+                        "endpoint": "path/with/pattern(s)?/*",
+                        "responses": [
+                            {
+                                "uuid": "a9b22f36-fb23-42ab-8bfe-d7264ae16aaf",
+                                "body": "The current path will match the following routes: \nhttp://localhost:3000/path/with/pattern/\nhttp://localhost:3000/path/with/patterns/\nhttp://localhost:3000/path/with/patterns/anything-else\n\nLearn more about Mockoon's routing: https://mockoon.com/docs/latest/routing",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "text/plain"
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "17e475b2-054e-4eb5-8eb9-94668ba306c5",
+                        "documentation": "Can Mockoon forward or record entering requests?",
+                        "method": "get",
+                        "endpoint": "forward-and-record",
+                        "responses": [
+                            {
+                                "uuid": "e91e3dda-316c-4326-8be4-f858283e2bc7",
+                                "body": "Mockoon can also act as a proxy and forward all entering requests that are not caught by declared routes. \nYou can activate this option in the environment settings ('cog' icon in the upper right corner). \nTo learn more: https://mockoon.com/docs/latest/proxy-mode\n\nAs always, all entering requests, and responses from the proxied server will be recorded ('clock' icon in the upper right corner).\nTo learn more: https://mockoon.com/docs/latest/requests-logging",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "text/plain"
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "a5123d4d-463d-4466-a906-da4d4bca91a0",
+                        "documentation": "",
+                        "method": "get",
+                        "endpoint": "categories",
+                        "responses": [
+                            {
+                                "uuid": "ddce3988-7e23-4054-a4ed-8f2fa8629b4c",
+                                "body": "[{\"id\":1, \"title\": \"Ofertas\" },{\"id\":2, \"title\": \"Solo por hoy\" },{\"id\":3, \"title\": \"Cosméticos\" }]",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    }
+                ],
+                "proxyMode": false,
+                "proxyHost": "",
+                "proxyRemovePrefix": false,
+                "tlsOptions": {
+                    "enabled": false,
+                    "type": "CERT",
+                    "pfxPath": "",
+                    "certPath": "",
+                    "keyPath": "",
+                    "caPath": "",
+                    "passphrase": ""
+                },
+                "cors": true,
+                "headers": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "proxyReqHeaders": [
+                    {
+                        "key": "",
+                        "value": ""
+                    }
+                ],
+                "proxyResHeaders": [
+                    {
+                        "key": "",
+                        "value": ""
+                    }
+                ]
+            }
+        }
+    ]
+}
